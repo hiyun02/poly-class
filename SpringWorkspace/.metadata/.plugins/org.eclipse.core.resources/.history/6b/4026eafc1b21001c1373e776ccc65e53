@@ -1,0 +1,67 @@
+package poly.controller;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import poly.dto.UserInfoDTO;
+import poly.service.IUserInfoService;
+import poly.util.CmmUtil;
+
+@Controller("UserInfoController")
+public class UserInfoController {
+	private Logger log = Logger.getLogger(this.getClass());
+	
+	@Resource(name="UserInfoService")
+	private IUserInfoService iUserInfoService;
+	
+	//회원가입 화면으로 이동
+	@RequestMapping(value="user/userRegForm")
+	public String userRegForm() {
+		log.info(this.getClass().getName()+" user/userRegForm ok !!");
+		return "/user/UserRegForm";
+	}
+	
+	
+	//회원가입 로직 처리
+	@RequestMapping(value="user/insertUserInfo")
+	public String insertUserInfo(HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception{
+		
+		log.info(this.getClass().getName()+" 회원가입 로직 시작 !!");
+		
+		//회원가입 결과에 대한 메시지를 전달할 변수
+		String msg ="";
+		
+		//웹(회원정보 입력화면)에서 받는 정보를 저장할 변수
+		UserInfoDTO pDTO = null;
+		
+		try {
+			//웹에서 받는 정보를 String 변수에 저장
+			String user_id = CmmUtil.nvl(request.getParameter("user_id"));
+			String user_name = CmmUtil.nvl(request.getParameter("user_name"));
+			String password = CmmUtil.nvl(request.getParameter("password"));
+			String email = CmmUtil.nvl(request.getParameter("email"));
+			String addr1 = CmmUtil.nvl(request.getParameter("addr1"));
+			String addr2 = CmmUtil.nvl(request.getParameter("addr2"));
+		
+			//*********값을 받았으면 꼭 로그를 찍어서 값이 제대로 들어오는 지 파악해야 함
+			log.info("user_id" + user_id);
+			log.info("user_name" +user_name);
+			log.info("password" +password);
+			log.info("email" +email);
+			log.info(" addr1" + addr1);
+			log.info("addr2" + addr2);
+			
+			
+		} catch(Exception e) {
+			
+		}
+		return null;
+	}
+	
+}

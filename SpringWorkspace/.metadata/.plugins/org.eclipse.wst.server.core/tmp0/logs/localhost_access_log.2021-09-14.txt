@@ -1,0 +1,4 @@
+127.0.0.1 - - [14/Sep/2021:14:45:51 +0900] "GET / HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [14/Sep/2021:14:45:51 +0900] "GET /WEB-INF/classes/poly/controller/MailController.java HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [14/Sep/2021:14:46:04 +0900] "GET /mail/mailForm.do HTTP/1.1" 200 596
+0:0:0:0:0:0:0:1 - - [14/Sep/2021:14:46:04 +0900] "GET /favicon.ico HTTP/1.1" 404 -

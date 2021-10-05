@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>회원가입 화면</title>
+<script type="text/javascript">
+	//회원가입 정브의 유효성 체크하기
+	function doRegUserCheck(f){
+		
+		if(f.user_id.value==""){
+			alert("아이디를 입력하세요.");
+			f.user_id.focus();
+			return false;
+		}
+		if(f.user_name.value==""){
+			alert("이름를 입력하세요.");
+			f.user_name.focus();
+			return false;
+		}
+		if(f.password.value==""){
+			alert("비밀번호를 입력하세요.");
+			f.password.focus();
+			return false;
+		}
+		if(f.password2.value==""){
+			alert("비밀번호 확인을 입력하세요.");
+			f.password2.focus();
+			return false;
+		}
+		if(f.email.value==""){
+			alert("이메일울 입력하세요.");
+			f.email.focus();
+			return false;
+		}
+		if(f.user_id.value==""){
+			alert("아이디를 입력하세요.");
+			f.user_id.focus();
+			return false;
+		}
+		if(f.user_id.value==""){
+			alert("아이디를 입력하세요.");
+			f.user_id.focus();
+			return false;
+		}
+		
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

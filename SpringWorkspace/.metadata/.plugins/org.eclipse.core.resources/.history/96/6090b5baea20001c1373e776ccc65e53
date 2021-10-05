@@ -1,0 +1,20 @@
+package poly.util;
+
+public class EncrypTest {
+
+   public static void main(String[] args) throws Exception {
+      
+      System.out.println("------------------------------");
+      System.out.println("해시 암호화 알고리즘");
+      //암호화 문자열
+      String str = "암호화할 문자열";
+      
+      //복호화가 불가능한 해시암호화 알고리즘 실행
+      String hasEnc = EncryptUtill.encHashSHA256(str);
+      
+      System.out.println("hashEnc : " + hasEnc);
+      
+      System.out.println("---------------------------");
+   }
+
+}
