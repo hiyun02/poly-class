@@ -11,13 +11,13 @@ import org.springframework.data.redis.core.RedisTemplate;
 @Configuration
 public class RedisConfiguration {
 
-    @Value("${spring.redis.host}")
+    @Value("192.168.241.135")
     private String redisHost;
 
-    @Value("${spring.redis.port}")
+    @Value("6379")
     private int redisPort;
 
-    @Value("${spring.redis.password}")
+    @Value("1234")
     private String redisPassword;
 
     @Bean

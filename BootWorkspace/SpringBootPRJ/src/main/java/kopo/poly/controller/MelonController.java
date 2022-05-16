@@ -104,4 +104,84 @@ public class MelonController {
         return msg;
     }
 
+    @GetMapping(value = "melon/updateBTSName")
+    public String updateBTSName() throws Exception{
+
+        log.info(this.getClass().getName()+".updateBTSName Start !!");
+
+        String msg;
+
+        int res = melonService.updateBTSName();
+
+        if(res == 1 ) {
+            msg = "success";
+        } else {
+            msg = "fail";
+        }
+
+        log.info(this.getClass().getName()+".updateBTSName End !!");
+
+        return msg;
+    }
+
+    @GetMapping(value = "melon/btsAddNickname")
+    public String btsAddNickname() throws Exception{
+
+        log.info(this.getClass().getName()+".btsAddNickname Start !!");
+
+        String msg;
+
+        int res = melonService.updateAddBTSNickname();
+
+        if(res == 1){
+            msg = "success";
+        } else {
+            msg = "fail";
+        }
+
+        log.info(this.getClass().getName()+".btsAddNickname End !!");
+
+        return msg;
+    }
+
+    @GetMapping(value = "melon/btsAddMember")
+    public String btsAddMember() throws Exception{
+        log.info(this.getClass().getName()+".btsAddMember Start !!");
+
+        String msg;
+
+        int res = melonService.updateAddBTSMember();
+
+        if(res==1){
+            msg = "success";
+        } else {
+            msg = "fail";
+        }
+
+        log.info(this.getClass().getName()+".btsAddMemeber End !!");
+
+        return msg;
+    }
+/*
+    멜론 노래 리스트 저장하기
+       */
+    @GetMapping(value = "melon/deleteSong")
+    public String delteSong() throws Exception {
+
+        log.info(this.getClass().getName() + ".deleteSong Start!");
+
+        String msg;
+
+        int res = melonService.deleteSong();
+
+        if(res == 1 ){
+            msg = "success";
+        } else {
+            msg = "fail";
+        }
+
+        log.info(this.getClass().getName()+".deleteSong End!");
+
+        return msg;
+    }
 }

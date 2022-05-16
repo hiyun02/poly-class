@@ -13,6 +13,7 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -187,6 +188,118 @@ public class MelonService implements IMelonService {
 
         log.info(this.getClass().getName()+".collectMelonSongMany End !");
 
+
+        return res;
+    }
+
+    @Override
+    public int updateBTSName() throws Exception {
+        log.info(this.getClass().getName()+".updateBTSName Start !");
+
+        int res = 0;
+
+        //수정할 컬렉션
+        String colNm = "MELON_"+DateUtil.getDateTime("yyyyMMdd");
+
+        //기존 수집된 멜론Top100 수집한 컬렉션 삭제하기
+        melonMapper.dropMelonCollection(colNm);
+
+        //멜론 Top100 수집하기
+        if(this.collectMelonSong() == 1) {
+
+            //수집된 데이터로부터 변경을 위해 찾을 가수명
+            String singer = "방탄소년단";
+
+            //수집된 데이터로부터 변경할 가수명
+            String updateSinger = "BTS";
+
+            //singer 필드에 저장된 값 '방탄소년단' 값을 'BTS'로 변경하기
+            res = melonMapper.updateSong(colNm, singer, updateSinger);
+        }
+
+        //로그 찍기 (추후 찍은 로그를 통해 이 함수에 접근했는지 파악하기 용이함
+        log.info(this.getClass().getName()+".updateBTSName End!");
+
+        return res;
+    }
+
+    @Override
+    public int updateAddBTSNickname() throws Exception {
+        log.info(this.getClass().getName()+".updateAddBTSNickname Start !!");
+
+        int res =0;
+        //수정할 컬렉션
+        String colNm = "MELON_"+DateUtil.getDateTime("yyyyMMdd");
+
+        //기존 수집된 멜론Top100 수집한 컬렉션 삭제하기
+        melonMapper.dropMelonCollection(colNm);
+
+        //멜론 Top100 수집하기
+        if(this.collectMelonSong() == 1) {
+
+            //수집된 데이터로부터 변경을 위해 찾을 가수명
+            String singer = "방탄소년단";
+
+            //수집된 데이터로부터 변경할 가수명
+            String nickname = "BTS";
+
+            //nickname 필드를 추가하고, nickname 필드 값은 'BTS' 저장하기
+            res = melonMapper.updateSongAddField(colNm, singer, nickname);
+        }
+
+        //로그 찍기 (추후 찍은 로그를 통해 이 함수에 접근했는지 파악하기 용이함
+        log.info(this.getClass().getName()+".updateAddBTSNickname End!");
+
+
+        return res;
+    }
+
+    @Override
+    public int updateAddBTSMember() throws Exception {
+
+        log.info(this.getClass().getName()+".updateAddBTSMember Start !");
+
+        int res =0;
+
+        String colNm = "MELON_"+DateUtil.getDateTime("yyyyMMdd");
+
+        //기존 수집된 멜론 Top100 수집한 컬렉션 삭제하기
+        melonMapper.dropMelonCollection(colNm);
+
+        //멜론 Top100 수집하기
+        if(this.collectMelonSong() == 1) {
+
+            //수집된 데이터로부터 변경을 위해 찾을 가수명
+            String singer ="방탄소년단";
+            String[] member = {"정국", "뷔", "지민", "슈가", "진", "제이홉", "RM"};
+
+            //MongoDB에 데이터 저장하기
+            //Arrays.asList(member) => List<String> 타입으로 member 변경하기
+            res = melonMapper.updateSongAddListField(colNm, singer, Arrays.asList(member));
+        }
+
+        log.info(this.getClass().getName()+".updateAddBTSMember End !");
+
+        return res;
+    }
+
+    @Override
+    public int deleteSong() throws Exception {
+        log.info(this.getClass().getName()+".deleteSong Start !");
+
+        int res =0;
+
+        //삭제할 컬렉션
+        String colNm = "MELON_"+DateUtil.getDateTime("yyyyMMdd");
+
+        //수집된 데이터로부터 삭제할 가수명
+        String singer = "방탄소년단";
+
+        //MongoDB에 데이터저장하기
+        res = melonMapper.deleteSong(colNm, singer);
+
+        //로그 찍기 (추후 찍은 로그를 통해 이 함수에 접근했는지 파악하기 용이하다.)
+        log.info(this.getClass().getName()+".deleteSong End !!");
 
         return res;
     }

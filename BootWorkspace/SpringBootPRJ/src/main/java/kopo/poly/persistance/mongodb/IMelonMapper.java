@@ -50,4 +50,55 @@ public interface IMelonMapper {
 	 * @return 저장 결과
 	 */
 	int insertSongMany(List<MelonDTO> pList, String colNm) throws Exception;
+
+
+	/**
+	 * 컬렉션 삭제하기
+	 *
+	 * @param colNm 삭제할 컬렉션 이름
+	 * @return 삭제 결과
+	 */
+	int dropMelonCollection(String colNm) throws Exception;
+
+
+	/**
+	 * 가수의 이름 수정하기
+	 *
+	 * @param colNm 수정할 컬렉션 이름
+	 * @param singer 수정할 가수이름
+	 * @param updateSinger 수정될 가수 이름
+	 * @return 수정 결과
+	 */
+	int updateSong(String colNm, String singer, String updateSinger) throws Exception;
+
+
+	/**
+	 * 가수의 Nicname 필드 추가 및 값 저장하기
+	 *
+	 * @param colNm 저장할 컬렉션 이름
+	 * @param singer 추가를 위해 검색할 가수이름
+	 * @param nickname 추가할 서브 가수이름
+	 * @return 수정 결과
+	 */
+	int updateSongAddField(String colNm, String singer, String nickname) throws Exception;
+
+	/**
+	 * 가수의 Member 필드 추가 및 BTS 멤버 이름 List로 저장하기
+	 *
+	 * @param colNm 저장할 컬렉션 이름
+	 * @param singer 추가를 위해 검색할 가수이름
+	 * @param member BTS 멤버 이름들을 추가하기
+	 * @return 수정 결과
+	 */
+	int updateSongAddListField(String colNm, String singer, List<String> member) throws Exception;
+
+	/**
+	 * 가수의 노래 삭제하기
+	 *
+	 * @param colNm 저장할 컬렉션 이름
+	 * @param singer 삭제할 가수이름
+	 * @return 저장 결과
+	 */
+	int deleteSong(String colNm, String singer) throws Exception;
 }
+
