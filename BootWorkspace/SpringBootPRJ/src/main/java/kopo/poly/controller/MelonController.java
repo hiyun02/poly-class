@@ -32,7 +32,7 @@ public class MelonController {
         if (res == 1) {
             msg = "success";
 
-        }else{
+        } else {
             msg = "fail";
         }
 
@@ -74,99 +74,100 @@ public class MelonController {
 
     @GetMapping(value = "melon/getSingerSong")
     public List<MelonDTO> getSingerSong() throws Exception {
-        log.info(this.getClass().getName()+".getSingerSong Start !!");
+        log.info(this.getClass().getName() + ".getSingerSong Start !!");
 
         List<MelonDTO> rList = melonService.getSingerSong();
 
-        log.info(this.getClass().getName()+".getSingerSong End !!");
+        log.info(this.getClass().getName() + ".getSingerSong End !!");
 
         return rList;
     }
 
 
-    @GetMapping(value="melon/collectMelonSongMany")
+    @GetMapping(value = "melon/collectMelonSongMany")
     public String collectMelonSongMany() throws Exception {
 
-        log.info(this.getClass().getName()+".collectMelonSongMany Start !!");
+        log.info(this.getClass().getName() + ".collectMelonSongMany Start !!");
 
         String msg;
 
         int res = melonService.collectMelonSongMany();
 
-        if(res ==1 ) {
-            msg="success";
+        if (res == 1) {
+            msg = "success";
         } else {
             msg = "fail";
         }
 
-        log.info(this.getClass().getName()+".collectMelonSongMany End !!");
+        log.info(this.getClass().getName() + ".collectMelonSongMany End !!");
 
         return msg;
     }
 
     @GetMapping(value = "melon/updateBTSName")
-    public String updateBTSName() throws Exception{
+    public String updateBTSName() throws Exception {
 
-        log.info(this.getClass().getName()+".updateBTSName Start !!");
+        log.info(this.getClass().getName() + ".updateBTSName Start !!");
 
         String msg;
 
         int res = melonService.updateBTSName();
 
-        if(res == 1 ) {
+        if (res == 1) {
             msg = "success";
         } else {
             msg = "fail";
         }
 
-        log.info(this.getClass().getName()+".updateBTSName End !!");
+        log.info(this.getClass().getName() + ".updateBTSName End !!");
 
         return msg;
     }
 
     @GetMapping(value = "melon/btsAddNickname")
-    public String btsAddNickname() throws Exception{
+    public String btsAddNickname() throws Exception {
 
-        log.info(this.getClass().getName()+".btsAddNickname Start !!");
+        log.info(this.getClass().getName() + ".btsAddNickname Start !!");
 
         String msg;
 
         int res = melonService.updateAddBTSNickname();
 
-        if(res == 1){
+        if (res == 1) {
             msg = "success";
         } else {
             msg = "fail";
         }
 
-        log.info(this.getClass().getName()+".btsAddNickname End !!");
+        log.info(this.getClass().getName() + ".btsAddNickname End !!");
 
         return msg;
     }
 
     @GetMapping(value = "melon/btsAddMember")
-    public String btsAddMember() throws Exception{
-        log.info(this.getClass().getName()+".btsAddMember Start !!");
+    public String btsAddMember() throws Exception {
+        log.info(this.getClass().getName() + ".btsAddMember Start !!");
 
         String msg;
 
         int res = melonService.updateAddBTSMember();
 
-        if(res==1){
+        if (res == 1) {
             msg = "success";
         } else {
             msg = "fail";
         }
 
-        log.info(this.getClass().getName()+".btsAddMemeber End !!");
+        log.info(this.getClass().getName() + ".btsAddMemeber End !!");
 
         return msg;
     }
-/*
-    멜론 노래 리스트 저장하기
-       */
+
+    /*
+        멜론 노래 리스트 저장하기
+           */
     @GetMapping(value = "melon/deleteSong")
-    public String delteSong() throws Exception {
+    public String deleteSong() throws Exception {
 
         log.info(this.getClass().getName() + ".deleteSong Start!");
 
@@ -174,13 +175,13 @@ public class MelonController {
 
         int res = melonService.deleteSong();
 
-        if(res == 1 ){
+        if (res == 1) {
             msg = "success";
         } else {
             msg = "fail";
         }
 
-        log.info(this.getClass().getName()+".deleteSong End!");
+        log.info(this.getClass().getName() + ".deleteSong End!");
 
         return msg;
     }
